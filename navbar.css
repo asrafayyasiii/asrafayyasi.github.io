@@ -1,0 +1,122 @@
+html,body{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    overflow-x: hidden;
+}
+nav{
+    
+    display: flex;
+    background-color:rgb(183, 190, 190) ;
+    justify-content: space-around;
+    height: 50px;
+    font-family: 'Lobster', cursive;
+    font-family: 'Nerko One', cursive;
+    align-items: center;
+}
+
+nav ul{
+    display: flex;   
+    list-style: none;
+    width: 40%;
+    justify-content: space-evenly;
+    padding-top: 5px;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: rgb(19, 19, 19);
+}
+
+a:hover{
+    color: aliceblue;
+}
+
+
+.menu-toggle{
+    display: none;
+    flex-direction: column;
+    height: 20px;
+    justify-content: space-between;
+    position: relative;
+    
+}
+
+.menu-toggle span{
+    display: block;
+    background-color: black;
+    height: 3px ;
+    width: 28px;
+    transition: all 0.3s;
+    
+}
+
+.menu-toggle input{
+    position: absolute;
+    margin-left: 0.2px;
+    margin-top: -5px;
+    height: 30px;
+    width: 30px;
+    box-sizing: border-box;
+    opacity: 0;
+    z-index: 2;
+    
+}
+
+.menu-toggle span:nth-child(2){
+    transform-origin: 0 0;
+}
+
+.menu-toggle span:nth-child(4){
+    transform-origin: 0 100%;
+}
+
+.menu-toggle    input:checked ~ span:nth-child(2){
+    transform: rotate(45deg) translate(-1px,-1px);
+}
+.menu-toggle    input:checked ~ span:nth-child(4){
+    transform: rotate(-45deg) translate(-1px,0);
+}
+.menu-toggle    input:checked ~ span:nth-child(3){
+    transform: scale(0);
+    opacity: 0;
+}
+
+
+
+@media screen and (max-width:768px){
+
+    nav ul {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width:576px) {
+    
+    nav ul{
+        position:absolute;
+        right: 0;
+        top: 0;
+        flex-direction: column;
+        height: 100vh;
+        align-items: center;
+        justify-content: space-evenly;
+        z-index: -1;
+        background-color:rgb(183, 190, 190) ;
+        transform: translatex(100%);
+        transition: all 1s;
+        opacity: 0;
+    } 
+    .menu-toggle{
+        display: flex;
+    }   
+
+    nav ul.slide{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
